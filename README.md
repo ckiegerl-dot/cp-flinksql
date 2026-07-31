@@ -205,5 +205,5 @@ CREATE TABLE orders (
 
 - **Original-Kurs:** https://developer.confluent.io/courses/flink-sql/
 - **Basis-Repo:** https://github.com/ethaden/confluent-platform-flink
-- **Flink SQL Docs:** https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/table/sql/
+- **Flink SQL Docs:** https://nightlies.apache.org/flink/flink-docs-stable/docs/dev/table/sql
 - **Confluent Docs:** https://docs.confluent.io/platform/current/flink/
