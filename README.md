@@ -11,14 +11,14 @@ Eikes Confluent Platform Demo mit Apache Flink auf Kubernetes (KIND)
 
 ## 📋 Überblick
 
-Dieser Kurs zeigt fortgeschrittene Apache Flink SQL Konzepte - angepasst für **Confluent Platform Flink (CP Flink)** auf Kubernetes. Alle Module verwenden die **gleiche Struktur wie der Original-Kurs**, nur die SQL-Syntax wurde für CP Flink angepasst.
+Dieser Kurs zeigt fortgeschrittene Apache Flink SQL Konzepte - angepasst für **Confluent Platform Flink (CP Flink)** auf Kubernetes. Alle Module verwenden dieselbe Struktur, nur die SQL-Syntax wurde für CP Flink angepasst.
 
-**Was ist anders?**
+**Was ist anders zur Cloud Demo (auf Confluent Developer)?**
 - ✅ Syntax angepasst für CP Flink
 - ✅ Kubernetes-native Setup
 - ✅ Datagen Connectors für Test-Daten
-- ✅ Alle Befehle copy-paste ready
-- ✅ Deutsch statt Englisch
+- ✅ Alle Befehle copy-paste ready (hoffentlich)
+
 
 ---
 
@@ -42,7 +42,6 @@ Dieser Kurs zeigt fortgeschrittene Apache Flink SQL Konzepte - angepasst für **
 | 14 | **Stream Enrichment** | ✏️ Exercise | [MODULE_14](MODULE_14_EXERCISE_STREAM_ENRICHMENT.md) | 45 min |
 | 15 | Using EXPLAIN for Troubleshooting | 📖 + 🎥 | [MODULE_15](MODULE_15_USING_EXPLAIN.md) | 19 min |
 
-**Gesamtdauer:** ~4.5 Stunden (inkl. Theorie + Exercises)
 
 ### Legende
 
@@ -61,16 +60,6 @@ Dieser Kurs zeigt fortgeschrittene Apache Flink SQL Konzepte - angepasst für **
 - ✅ Kubernetes Namespace: `confluent`
 - ✅ Control Center: http://localhost:9021
 
-**Prüfen ob alles läuft:**
-
-```bash
-# Kafka & Flink Pods
-kubectl get pods -n confluent | grep -E "kafka|flink"
-
-# Control Center
-curl -s http://localhost:9021 > /dev/null && echo "✅ Control Center läuft"
-```
-
 ---
 
 ## 🚀 Schnellstart
@@ -82,18 +71,15 @@ curl -s http://localhost:9021 > /dev/null && echo "✅ Control Center läuft"
 ./start.sh
 ```
 
-**Dauer:** ~5-10 Minuten (lädt Docker Images, startet Kubernetes)
-
 ---
 
 ### Schritt 2: Test-Daten generieren
 
-Die Exercises benötigen Test-Daten. Nutze die Datagen Connectors:
+Die Exercises benötigen Test-Daten. Datagen-Clickstream und Datagen-Users benötigt in addition zu der Umgebung von Eike.
 
 ```bash
-# Im projects/BA/eike Verzeichnis
-kubectl apply -f kubernetes/k8s-connector-datagen-orders.yaml
-cd flinksqldemo
+kubectl apply -f kubernetes/k8s-connector-datagen-orders.yaml (das sollte schon laufen, das wird über start.sh schon gemacht)
+
 kubectl apply -f datagen-clickstream.yaml
 kubectl apply -f datagen-users.yaml
 ```
@@ -206,23 +192,6 @@ CREATE TABLE orders (
 
 ---
 
-## 🎯 Learning Path
-
-**Beginner:**
-1. Modul 1-3: Get Started
-2. Modul 4-5: Watermarks verstehen
-
-**Intermediate:**
-3. Modul 6-8: Window Aggregations
-4. Modul 9: JOINs
-5. Modul 13-14: Changelog Processing
-
-**Advanced:**
-6. Modul 11-12: Pattern Recognition
-7. Modul 15: EXPLAIN für Troubleshooting
-
----
-
 ## 💡 Tipps
 
 1. **Control Center nutzen:** Flink SQL Workspace zeigt Query-Ergebnisse in Echtzeit
@@ -232,39 +201,9 @@ CREATE TABLE orders (
 
 ---
 
-## 🐛 Troubleshooting
-
-**Flink Job läuft nicht:**
-```bash
-kubectl logs -n confluent flink-taskmanager-0 --tail=50
-```
-
-**Control Center nicht erreichbar:**
-```bash
-kubectl port-forward -n confluent svc/controlcenter 9021:9021
-```
-
-**Connector läuft nicht:**
-```bash
-kubectl describe connector datagen-clicks -n confluent
-kubectl logs -n confluent connect-0 --tail=100
-```
-
-**Schema Registry Fehler:**
-```bash
-kubectl exec -n confluent schemaregistry-0 -- curl -s http://localhost:8081/subjects
-```
-
----
-
 ## 📖 Weitere Ressourcen
 
 - **Original-Kurs:** https://developer.confluent.io/courses/flink-sql/
 - **Basis-Repo:** https://github.com/ethaden/confluent-platform-flink
 - **Flink SQL Docs:** https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/table/sql/
 - **Confluent Docs:** https://docs.confluent.io/platform/current/flink/
-- **Community Slack:** https://cnfl.io/slack-cd (Channel: `#developer-confluent-io`)
-
----
-
-**Viel Erfolg mit Apache Flink SQL! 🚀**
