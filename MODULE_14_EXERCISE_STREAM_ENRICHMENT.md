@@ -2,7 +2,6 @@
 
 **Original:** https://developer.confluent.io/courses/flink-sql/exercise-stream-enrichment/  
 **Duration:** 45 min  
-**Instructor:** David Anderson, Principal Software Practice Lead
 
 **Angepasst für:** Eikes Demo Environment (Confluent Platform 8.1.0 + CP Flink)
 

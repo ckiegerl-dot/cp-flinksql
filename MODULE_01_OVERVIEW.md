@@ -2,6 +2,7 @@
 
 **Original:** https://developer.confluent.io/courses/flink-sql/overview/  
 **Typ:** Reading  
+**Instruktor:** David Anderson, Principal Software Practice Lead
 
 **Demo Environment:** https://github.com/ethaden/confluent-platform-flink  
 Diese Version basiert auf Eikes Confluent Platform Demo mit Flink auf Kubernetes (KIND)
@@ -45,6 +46,18 @@ Dieser Kurs richtet sich an alle, die Apache Flink und Flink SQL lernen wollen.
 **Aufschlüsselung:**
 - Theorie-Module (Videos + Readings): ~2 Stunden
 - Praktische Exercises: ~2.5 Stunden
+
+---
+
+## Instruktor
+
+### David Anderson - Course Author
+
+David arbeitet seit vielen Jahren als Data Engineer - noch bevor dieser Jobtitel erfunden wurde. Er hat an Recommender Systems, Search Engines, Machine Learning Pipelines und BI Tools gearbeitet, und hilft Unternehmen seit 2016 bei der Einführung von Stream Processing und Apache Flink.
+
+David ist ein **Apache Flink Committer** und arbeitet bei Confluent als **Principal Software Practice Lead**.
+
+**LinkedIn:** [David Anderson](https://www.linkedin.com/in/david-g-anderson/)
 
 ---
 

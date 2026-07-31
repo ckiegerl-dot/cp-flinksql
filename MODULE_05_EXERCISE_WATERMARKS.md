@@ -2,7 +2,6 @@
 
 **Original:** https://developer.confluent.io/courses/flink-sql/watermarks-exercise/  
 **Duration:** 30 min  
-**Instructor:** David Anderson, Principal Software Practice Lead
 
 **Angepasst für:** Eikes Demo Environment (Confluent Platform 8.1.0 + CP Flink)
 
